@@ -12,15 +12,10 @@ app.use(cors());
 app.use(express.json())
 app.use('/api', router);
 
-// req - запрос, res - ответ
-app.get('/', (req, res) => {
-    res.status(200).json({ message: 'WORKING!!!' });
-})
-
 const start = async () => {
     try {
-//         await sequelize.authenticate();
-//         await sequelize.sync({alter: true}); // синхронизация
+        await sequelize.authenticate();
+        await sequelize.sync({alter: true}); // синхронизация
         app.listen(PORT, () => console.log(`Server started: ${PORT}`));
     } catch (e) {
         console.log(e);

@@ -4,8 +4,8 @@ const { DataTypes } = require('sequelize');
 // без внешних ключей
 const Lesson = sequelize.define('lessons', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    title: DataTypes.STRING,
     date: DataTypes.DATE,
+    title: DataTypes.STRING,
 	status: DataTypes.BOOLEAN,
 });
 
@@ -28,8 +28,6 @@ const LessonStudents = sequelize.define('lesson_students', {
 const LessonTeachers = sequelize.define('lessons_teachers', {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 });
-
-
 
 Lesson.hasMany(LessonStudents);
 LessonStudents.belongsTo(Lesson);
