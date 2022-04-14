@@ -1,8 +1,9 @@
 const Router = require('express');
 const router = new Router();
 
-const cardRouter = require('./cardRouter');
+const getLessonsRouter = require('./getLessonsRouter');
 
-router.use('/cards', cardRouter);
+router.use('/', getLessonsRouter);
+// router.use('/lessons', createLessonsRouter);
 
 module.exports = router;
